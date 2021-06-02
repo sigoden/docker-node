@@ -21,18 +21,18 @@ jobs:
       - name: Build and push base
         uses: docker/build-push-action@v2
         with:
-          context: ${{ github.server.url }}/${{ github.repository }}.git#master:base
+          context: ${{ env.GITHUB_SERVER_URL }}/${{ env.GITHUB_REPOSITORY }}.git#master:base
           push: true
           tags: sigoden/node:14
       - name: Build and push native
         uses: docker/build-push-action@v2
         with:
-          context: ${{ github.server.url }}/${{ github.repository }}.git#master:native
+          context: ${{ env.GITHUB_SERVER_URL }}/${{ env.GITHUB_REPOSITORY }}.git#master:native
           push: true
           tags: sigoden/node:14-native
       - name: Build and push native
         uses: docker/build-push-action@v2
         with:
-          context: ${{ github.server.url }}/${{ github.repository }}.git#master:slim
+          context: ${{ env.GITHUB_SERVER_URL }}/${{ env.GITHUB_REPOSITORY }}.git#master:slim
           push: true
           tags: sigoden/node:14-slim
