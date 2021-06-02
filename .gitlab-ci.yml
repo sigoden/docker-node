@@ -1,0 +1,24 @@
+image: docker:stable
+
+services:
+  - docker:dind
+
+variables:
+
+build-base:
+  script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - docker build -t $CI_REGISTRY_IMAGE:14 base
+    - docker push $CI_REGISTRY_IMAGE:14
+
+build-native:
+  script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - docker build -t $CI_REGISTRY_IMAGE:14-native native
+    - docker push $CI_REGISTRY_IMAGE:14-native
+
+build-slim:
+  script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - docker build -t $CI_REGISTRY_IMAGE:14-slim slim
+    - docker push $CI_REGISTRY_IMAGE:14-slim
