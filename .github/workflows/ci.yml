@@ -21,21 +21,18 @@ jobs:
       - name: Build and push base
         uses: docker/build-push-action@v2
         with:
-          context: ./base
           file: ./base/Dockerfile
           push: true
           tags: sigoden/node:14
       - name: Build and push native
         uses: docker/build-push-action@v2
         with:
-          context: ./native
           file: ./native/Dockerfile
           push: true
           tags: sigoden/node:14-native
       - name: Build and push native
         uses: docker/build-push-action@v2
         with:
-          context: ./slim
           file: ./slim/Dockerfile
           push: true
           tags: sigoden/node:14-slim
