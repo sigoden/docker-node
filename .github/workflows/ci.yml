@@ -1,6 +1,7 @@
 name: build and push docker images
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - 'master'
@@ -23,16 +24,16 @@ jobs:
         with:
           file: ./base/Dockerfile
           push: true
-          tags: sigoden/node:14
+          tags: sigoden/node:16
       - name: Build and push native
         uses: docker/build-push-action@v2
         with:
           file: ./native/Dockerfile
           push: true
-          tags: sigoden/node:14-native
+          tags: sigoden/node:16-native
       - name: Build and push native
         uses: docker/build-push-action@v2
         with:
           file: ./slim/Dockerfile
           push: true
-          tags: sigoden/node:14-slim
+          tags: sigoden/node:16-slim

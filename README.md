@@ -1,19 +1,19 @@
-# Minimal Node.js Docker Images
+# Node Minimal Docker Image
 
-- Full install built with npm and c++
-- Full install built with npm
-- Slim install with no npm
+- base: node + npm
+- slim: node only
+- native: node + npm + c++ tools
 
 ## Usage
 
 ```
-FROM sigoden/node:14-native
+FROM sigoden/node:16-native
 WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm ci --prod
 
 # Only copy over the node pieces we need from the above image
-FROM sigoden/node:14-slim
+FROM sigoden/node:16-slim
 WORKDIR /app
 COPY --from=0 /app .
 COPY . .
