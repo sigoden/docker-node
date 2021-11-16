@@ -26,22 +26,16 @@ jobs:
         with:
           file: ./base/Dockerfile
           push: true
-          tags:
-          - sigoden/node:16
-          - sigoden/node:latest
+          tags: sigoden/node:16,sigoden/node:latest
       - name: Build and push native
         uses: docker/build-push-action@v2
         with:
           file: ./native/Dockerfile
           push: true
-          tags:
-          - sigoden/node:16-native
-          - sigoden/node:native
+          tags: sigoden/node:16-native,sigoden/node:native
       - name: Build and push native
         uses: docker/build-push-action@v2
         with:
           file: ./slim/Dockerfile
           push: true
-          tags:
-          - sigoden/node:16-slim
-          - sigoden/node:slim
+          tags: sigoden/node:16-slim,sigoden/node:slim
