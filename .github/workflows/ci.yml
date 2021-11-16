@@ -33,7 +33,7 @@ jobs:
           file: ./native/Dockerfile
           push: true
           tags: sigoden/node:16-native,sigoden/node:native
-      - name: Build and push native
+      - name: Build and push slim
         uses: docker/build-push-action@v2
         with:
           file: ./slim/Dockerfile
